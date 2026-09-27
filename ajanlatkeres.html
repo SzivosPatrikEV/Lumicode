@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>AJÁNLATKÉRÉS — SZÍVÓS.</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body id="top">
+        <header class="header">
+            <a class="logo" href="index.html">LUMICODE
+                <span>.</span>
+            </a>
+            <nav class="nav">
+                <a href="index.html">KEZDŐLAP</a>
+                <a href="weboldal-rendeles.html">WEBOLDAL RENDELÉS</a>
+                <a href="reklam-keszites">REKLÁM KÉSZÍTÉS</a>
+                <a href="referenciak.html">REFERENCIÁK</a>
+                <a href="kapcsolat.html">KAPCSOLAT</a>
+            </nav>
+            <div class="header-right">
+                <button class="lang active">🇭🇺</button>
+                <button class="lang">🇬🇧</button>
+                <span class="status">
+                    <i></i> ÚJ VÁLLALKOZÁS — NYITVA
+                </span>
+            </div>
+            <button class="menu-toggle" aria-label="Menü">☰</button>
+        </header>
+        <main class="page">
+            <section class="section quote-section">
+                <div class="container">
+                    <div class="eyebrow">// &nbsp; AJÁNLATKÉRÉS</div>
+                    <h1 style="font:900 clamp(65px,8vw,115px)/.8 'Barlow Condensed';margin:18px 0 12px">AJÁNLATKÉRÉS</h1>
+                    <p style="color:#747980;margin-bottom:45px">Minél több részletet írsz, annál pontosabb ajánlatot tudok küldeni.</p>
+                    <form class="quote-form" id="quoteForm">
+                        <div class="form-grid">
+                            <div class="field">
+                                <label>NÉV *</label>
+                                <input name="Név" required>
+                            </div>
+                            <div class="field">
+                                <label>CÉG</label>
+                                <input name="Cég">
+                            </div>
+                            <div class="field">
+                                <label>EMAIL *</label>
+                                <input type="email" name="Email" required>
+                            </div>
+                            <div class="field">
+                                <label>TELEFON</label>
+                                <input name="Telefon">
+                            </div>
+                            <div class="field">
+                                <label>CSOMAG *</label>
+                                <select name="Csomag" required>
+                                    <option value="">Válassz...</option>
+                                    <option>One-page starter</option>
+                                    <option>Bemutatkozó oldal</option>
+                                    <option>Webshop</option>
+                                    <option>Egyedi alkalmazás</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label>KÍVÁNT HATÁRIDŐ</label>
+                                <input name="Határidő" placeholder="pl. 2026 augusztus">
+                            </div>
+                            <div class="field">
+                                <label>KÖLTSÉGKERET</label>
+                                <select name="Költségkeret">
+                                    <option>Válassz...</option>
+                                    <option>80–150 ezer Ft</option>
+                                    <option>150–300 ezer Ft</option>
+                                    <option>300–500 ezer Ft</option>
+                                    <option>500 ezer Ft felett</option>
+                                </select>
+                            </div>
+                            <div class="field full-row">
+                                <label>PROJEKT LEÍRÁSA *</label>
+                                <textarea name="Projekt leírása" required placeholder="Mit szeretnél elérni? Van már design vagy inspiráció? Milyen funkciók kellenek?"></textarea>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary full form-submit" type="submit">AJÁNLATKÉRÉS ELKÜLDÉSE →</button>
+                        <p class="form-message" id="formMessage"></p>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="logo">SZÍVÓS
+                <span>.</span>
+            </div>
+            <p>© 2026 SZÍVÓS. Minden jog fenntartva.</p>
+            <a href="#top">VISSZA A TETEJÉRE ↑</a>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
