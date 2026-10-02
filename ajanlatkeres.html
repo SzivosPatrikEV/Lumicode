@@ -8,7 +8,7 @@
     </head>
     <body id="top">
         <header class="header">
-            <a class="logo" href="index.html">LUMICODE
+            <a class="logo" href="index.html">Weblume
                 <span>.</span>
             </a>
             <nav class="nav">
@@ -93,6 +93,20 @@
             <p>© 2026 SZÍVÓS. Minden jog fenntartva.</p>
             <a href="#top">VISSZA A TETEJÉRE ↑</a>
         </footer>
-        <script src="script.js"></script>
+
+        <!-- Sikeres ajánlatkérés popup -->
+        <div class="success-modal" id="successModal" aria-hidden="true">
+            <div class="success-modal-backdrop"></div>
+            <div class="success-modal-box" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+                <button class="success-modal-close" id="successModalClose" type="button" aria-label="Bezárás">×</button>
+                <div class="success-icon">✓</div>
+                <div class="eyebrow">// &nbsp; ELKÜLDVE</div>
+                <h2 id="successTitle">KÖSZÖNÖM A<br>MEGKERESÉST!</h2>
+                <p>Az ajánlatkérésed sikeresen megérkezett. Hamarosan jelentkezem a megadott elérhetőségen.</p>
+                <button class="btn btn-primary success-modal-button" id="successModalOk" type="button">RENDBEN →</button>
+            </div>
+        </div>
+
+        <script src="ajanlatkeres.js"></script>
     </body>
 </html>

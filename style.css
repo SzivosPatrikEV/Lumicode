@@ -255,29 +255,72 @@ h3,
 }
 
 .hero-copy h1 {
-    margin: 25px 0 58px;
-    font: 900 clamp(105px, 12vw, 190px) / 0.73 "Barlow Condensed";
-    letter-spacing: -5px;
+    margin: 25px 0 34px;
+    font: 900 clamp(82px, 11vw, 166px) / 0.82 "Barlow Condensed";
+    letter-spacing: -.045em;
     color: #f4f5f7;
-    text-shadow: none;
+    text-shadow: 0 8px 38px rgba(0, 0, 0, .35);
+    max-width: 100%;
+    animation: hero-title-in .9s cubic-bezier(.2,.75,.25,1) both;
 }
 
-.hero-copy h1 br {
+.hero-copy h1 > span {
     display: block;
-    margin-bottom: 800px;
+    white-space: nowrap;
+}
+
+.hero-copy h1 > span + span {
+    margin-top: .24em;
+}
+
+.hero-dot {
+    color: var(--blue);
 }
 
 .hero-copy p {
-    max-width: 470px;
-    color: #81868d;
-    line-height: 1.7;
-    font-size: 15px
+    max-width: 540px;
+    color: #c0c5cc;
+    line-height: 1.75;
+    font-size: 16px;
+    text-wrap: pretty;
+    animation: rise-in .75s .15s both;
+}
+
+/* Shared reading rhythm and contrast across the inner pages */
+.section p,
+.order-hero p,
+.contact-box p,
+.ref-info p,
+.ad-hero .hero-lead,
+.ad-copy > p,
+.cta-box p,
+.process-item p,
+.format-card p {
+    color: #aeb4bd;
+    line-height: 1.75;
+}
+
+.order-hero h1,
+.order-shadow,
+.contact-layout h1,
+.ad-hero h1,
+.section-heading,
+.cta-box h2 {
+    text-wrap: balance;
+}
+
+.order-hero h1,
+.contact-layout h1,
+.ad-hero h1,
+.section-heading {
+    animation: hero-title-in .8s cubic-bezier(.2,.75,.25,1) both;
 }
 
 .hero-actions {
     display: flex;
     gap: 12px;
-    margin-top: 34px
+    margin-top: 34px;
+    animation: rise-in .75s .25s both
 }
 
 .service-grid {
@@ -312,7 +355,7 @@ h3,
 }
 
 .service-card p {
-    color: #747980;
+    color: #aeb4bd;
     font-size: 13px;
     line-height: 1.6
 }
@@ -444,7 +487,7 @@ h3,
 }
 
 .ref-info p {
-    color: #777c82;
+    color: #aeb4bd;
     font-size: 13px;
     line-height: 1.6
 }
@@ -521,7 +564,7 @@ h3,
 }
 
 .contact-box p {
-    color: #747980;
+    color: #aeb4bd;
     font-size: 13px;
     line-height: 1.7;
     margin-bottom: 28px
@@ -663,7 +706,7 @@ h3,
 
 .package p {
     min-height: 70px;
-    color: #71767d;
+    color: #aeb4bd;
     font-size: 13px;
     line-height: 1.55;
     margin-top: 15px
@@ -684,7 +727,7 @@ h3,
 }
 
 .package li:before {
-    content: "âœ“";
+    content: "Ã¢Å“â€œ";
     color: var(--blue);
     margin-right: 8px
 }
@@ -806,7 +849,7 @@ h3,
 
 .style-card span {
     display: block;
-    color: #747980;
+    color: #aeb4bd;
     font-size: 12px;
     margin-top: 7px
 }
@@ -981,12 +1024,12 @@ summary:after {
 }
 
 details[open] summary:after {
-    content: "âˆ’"
+    content: "Ã¢Ë†â€™"
 }
 
 details p {
     padding: 0 20px 20px;
-    color: #737980;
+    color: #aeb4bd;
     font-size: 13px;
     line-height: 1.7
 }
@@ -1091,10 +1134,20 @@ details p {
         padding: 0 22px
     }
 
-    .nav,
-    .header-right {
+    .nav {
         display: none
     }
+
+    .header-right {
+        display: flex;
+        position: absolute;
+        right: 62px;
+        gap: 2px;
+    }
+
+    .header-right .status { display: none; }
+
+    .header-right .lang { font-size: 18px; }
 
     .menu-toggle {
         display: block
@@ -1190,8 +1243,115 @@ details p {
     }
 }
 
+/* Subtle movement and clearer hero typography */
+@keyframes hero-title-in {
+    from { opacity: 0; transform: translateY(24px); filter: blur(8px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
 
-/* REKLÃM KÃ‰SZÃTÃ‰S */
+@keyframes rise-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-home:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(115deg, transparent 35%, rgba(0, 140, 255, .055), transparent 65%);
+    transform: translateX(-70%);
+    animation: hero-sweep 1.5s .3s ease-out forwards;
+}
+
+@keyframes hero-sweep {
+    to { transform: translateX(70%); }
+}
+
+.service-card,
+.ref-card,
+.package,
+.format-card,
+.process-item {
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .25s ease, box-shadow .3s ease;
+}
+
+.service-card:hover,
+.package:hover,
+.ref-card:hover {
+    transform: translateY(-5px);
+}
+
+.btn,
+.nav a,
+.footer a {
+    transition: color .25s ease, background-color .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.service-card,
+.section-title,
+.showcase,
+.ref-card,
+.ref-info,
+.format-card,
+.process-item,
+.contact-layout > *,
+.quote-form,
+.ad-hero .container > *,
+.order-inner > *,
+.cta-box,
+.two-column > *,
+.section .container > h1 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1);
+}
+
+.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.status i {
+    animation: status-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+    50% { box-shadow: 0 0 0 6px rgba(0, 140, 255, .08), 0 0 16px var(--blue); }
+}
+
+@media(max-width:800px) {
+    .hero-copy h1 {
+        font-size: clamp(66px, 13.5vw, 96px);
+        line-height: .88;
+        letter-spacing: -.05em;
+        margin-bottom: 30px;
+    }
+
+    .hero-copy p { font-size: 15px; }
+}
+
+@media(max-width:450px) {
+    .hero-copy h1 { font-size: clamp(52px, 14vw, 70px); }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+    .service-card, .section-title, .showcase, .ref-card, .ref-info, .format-card, .process-item,
+    .contact-layout > *, .quote-form, .ad-hero .container > *, .order-inner > *, .cta-box, .two-column > *, .section .container > h1 {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* REKLÃƒÂM KÃƒâ€°SZÃƒÂTÃƒâ€°S */
 .ad-hero {
     min-height: 82vh;
     display: flex;
@@ -1295,7 +1455,7 @@ details p {
 }
 
 .ad-card li:before {
-    content: "âœ“";
+    content: "Ã¢Å“â€œ";
     color: #078cff;
     margin-right: 9px
 }
@@ -1494,4 +1654,135 @@ details p {
         flex-direction: column;
         align-items: flex-start
     }
+}
+
+
+/* ================================
+   AJÃNLATKÃ‰RÃ‰S â€” SIKERES KÃœLDÃ‰S
+   ================================ */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.success-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+.success-modal.show {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.success-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .78);
+    backdrop-filter: blur(10px);
+}
+
+.success-modal-box {
+    position: relative;
+    z-index: 1;
+    width: min(520px, 100%);
+    padding: 48px 42px 42px;
+    background: #0d0f11;
+    border: 1px solid var(--blue);
+    box-shadow: 0 0 70px rgba(0, 140, 255, .16);
+    text-align: center;
+    transform: translateY(20px) scale(.97);
+    transition: transform .3s cubic-bezier(.2,.7,.2,1);
+}
+
+.success-modal.show .success-modal-box {
+    transform: translateY(0) scale(1);
+}
+
+.success-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 17px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--line);
+    background: #08090a;
+    color: #888e95;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.success-modal-close:hover {
+    color: #fff;
+    border-color: var(--blue);
+}
+
+.success-icon {
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 25px;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    color: var(--blue);
+    font: 700 28px "Inter", sans-serif;
+    box-shadow: 0 0 28px rgba(0, 140, 255, .18);
+}
+
+.success-modal-box .eyebrow {
+    margin-bottom: 15px;
+}
+
+.success-modal-box h2 {
+    margin: 0 0 18px;
+    font: 900 clamp(42px, 7vw, 64px) / .82 "Barlow Condensed", sans-serif;
+    letter-spacing: -.02em;
+}
+
+.success-modal-box p {
+    max-width: 390px;
+    margin: 0 auto;
+    color: #aeb4bd;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.success-modal-button {
+    margin-top: 30px;
+}
+
+.form-submit:disabled {
+    opacity: .65;
+    cursor: wait;
+    transform: none;
+}
+
+@media(max-width:500px) {
+    .success-modal-box {
+        padding: 42px 25px 30px;
+    }
+
+    .success-modal-box h2 {
+        font-size: 48px;
+    }
+}
+
+/* AJÁNLATKÉRÉS - FORM MEGJELENÍTÉSE */
+
+.quote-form {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
